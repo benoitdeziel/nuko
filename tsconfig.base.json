@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nuko/config": ["packages/config/src/index.ts"],
+      "@nuko/nest-config": ["packages/nest-config/src/index.ts"],
+      "@nuko/nest-logger": ["packages/nest-logger/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
