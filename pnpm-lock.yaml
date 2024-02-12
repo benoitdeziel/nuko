@@ -97,6 +97,9 @@ devDependencies:
   commitizen:
     specifier: ^4.3.0
     version: 4.3.0(@types/node@18.16.20)(typescript@5.3.3)
+  cz-conventional:
+    specifier: ^0.0.2
+    version: 0.0.2
   eslint:
     specifier: ~8.48.0
     version: 8.48.0
@@ -4437,6 +4440,10 @@ packages:
       compare-func: 2.0.0
     dev: true
 
+  /conventional-commit-types@2.3.0:
+    resolution: {integrity: sha512-6iB39PrcGYdz0n3z31kj6/Km6mK9hm9oMRhwcLnKxE7WNoeRKZbTAobliKrbYZ5jqyCvtcVEfjCiaEzhL3AVmQ==}
+    dev: true
+
   /conventional-commit-types@3.0.0:
     resolution: {integrity: sha512-SmmCYnOniSsAa9GqWOeLqc179lfr5TRu5b4QFDkbsrJ5TZjPJx85wtOr3zn+1dbeNiXDKGPbZ72IKbPhLXh/Lg==}
     dev: true
@@ -4772,6 +4779,17 @@ packages:
     transitivePeerDependencies:
       - '@types/node'
       - typescript
+    dev: true
+
+  /cz-conventional@0.0.2:
+    resolution: {integrity: sha512-dFA3bitjfR7KKzWZ/SbU9WViJOlMFQGizh0efy6y6UcUDlxCJe64zHIX0pmdbhjszUhpPmfkkejA0QFVv20oXA==}
+    dependencies:
+      conventional-commit-types: 2.3.0
+      lodash.map: 4.6.0
+      longest: 1.0.1
+      pad-right: 0.2.2
+      right-pad: 1.0.1
+      word-wrap: 1.2.5
     dev: true
 
   /dargs@7.0.0:
@@ -7110,6 +7128,11 @@ packages:
       wrap-ansi: 9.0.0
     dev: true
 
+  /longest@1.0.1:
+    resolution: {integrity: sha512-k+yt5n3l48JU4k8ftnKG6V7u32wyH2NfKzeMto9F/QRE0amxy/LayxwlvjjkZEIzqR+19IrtFO8p5kB9QaYUFg==}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
   /longest@2.0.1:
     resolution: {integrity: sha512-Ajzxb8CM6WAnFjgiloPsI3bF+WCxcvhdIG3KNA2KN962+tdBsHcuQ4k4qX/EcS/2CRkcc0iAkR956Nib6aXU/Q==}
     engines: {node: '>=0.10.0'}
@@ -7712,6 +7735,13 @@ packages:
   /p-try@2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
+    dev: true
+
+  /pad-right@0.2.2:
+    resolution: {integrity: sha512-4cy8M95ioIGolCoMmm2cMntGR1lPLEbOMzOKu8bzjuJP6JpzEMQcDHmh7hHLYGgob+nKe1YHFMaG4V59HQa89g==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      repeat-string: 1.6.1
     dev: true
 
   /parent-module@1.0.1:
@@ -8549,6 +8579,11 @@ packages:
 
   /rfdc@1.3.1:
     resolution: {integrity: sha512-r5a3l5HzYlIC68TpmYKlxWjmOP6wiPJ1vWv2HeLhNsRZMrCkxeqxiHlQ21oXmQ4F3SiryXBHhAD7JZqvOJjFmg==}
+    dev: true
+
+  /right-pad@1.0.1:
+    resolution: {integrity: sha512-bYBjgxmkvTAfgIYy328fmkwhp39v8lwVgWhhrzxPV3yHtcSqyYKe9/XOhvW48UFjATg3VuJbpsp5822ACNvkmw==}
+    engines: {node: '>= 0.10'}
     dev: true
 
   /rimraf@3.0.2:
