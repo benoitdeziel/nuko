@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nuko/nest-broker": ["libs/nest-broker/src/index.ts"],
+      "@nuko/nest-cache": ["libs/nest-cache/src/index.ts"],
       "@nuko/nest-config": ["libs/nest-config/src/index.ts"],
+      "@nuko/nest-health": ["libs/nest-health/src/index.ts"],
       "@nuko/nest-logger": ["libs/nest-logger/src/index.ts"]
     }
   },
