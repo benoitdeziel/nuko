@@ -1,0 +1,65 @@
+import { Module } from '@nestjs/common';
+import { HealthModule } from '@microservice-stack/nest-health';
+import { ConfigModule, ConfigService } from '@microservice-stack/nest-config';
+import { ConfigVariables } from '@<%= organisationName %>/api/<%= applicationName %>/constants';
+import { <%= capitalApplicationName %>Module } from '@<%= organisationName %>/api/<%= applicationName %>/<%= applicationName %>';
+<% if(includeDatabase) { %>import { TypeOrmModule } from '@nestjs/typeorm';
+import { migrations } from './migrations';<% } if(includeQueue) { %>
+import { RabbitmqModule } from '@microservice-stack/nest-rabbitmq';<% } if(includeRedis) { %>
+import { RedisModule } from '@microservice-stack/nest-redis';<% } %>
+
+@Module({
+  imports: [
+    ConfigModule.register({
+      requiredEnvironmentVariables: [
+        ConfigVariables.REQUIRED_ENVIRONMENT_VARIABLE,
+        <% if(includeQueue) { %>ConfigVariables.QUEUE_URL,<% }  if(includeDatabase) { %>
+        ConfigVariables.TYPEORM_DATABASE,
+        ConfigVariables.TYPEORM_HOST,
+        ConfigVariables.TYPEORM_PASSWORD,
+        ConfigVariables.TYPEORM_PORT,
+        ConfigVariables.TYPEORM_USERNAME,<% } if (includeRedis) { %>
+        ConfigVariables.REDIS_URL,<% } %>
+      ],
+    }),<% if(includeDatabase) { %>
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        type: `postgres`,
+        host: configService.get(ConfigVariables.TYPEORM_HOST),
+        username: configService.get(ConfigVariables.TYPEORM_USERNAME),
+        password: configService.get(ConfigVariables.TYPEORM_PASSWORD),
+        database: configService.get(ConfigVariables.TYPEORM_DATABASE),
+        port: configService.get(ConfigVariables.TYPEORM_PORT),
+        synchronize: false,
+        keepConnectionAlive: true,
+        autoLoadEntities: true,
+        migrations: migrations,
+        migrationsRun: true,
+      }),
+      inject: [ConfigService],
+    }),<% } if (includeQueue) { %>
+    RabbitmqModule.register({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        uri: configService.get(ConfigVariables.QUEUE_URL),
+      }),
+    }),<% } if (includeRedis) { %>
+    RedisModule.register({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        connections: [{
+          connectionName: 'default',
+          connectionUrl: configService.get(ConfigVariables.REDIS_URL),
+        }]
+      }),
+    }),<% } %>
+    HealthModule,
+    <%= capitalApplicationName %>Module,
+  ],
+  controllers: [],
+  providers: [],
+})
+export class AppModule {}

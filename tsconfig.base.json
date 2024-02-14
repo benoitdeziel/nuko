@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nuko/generators": ["libs/generators/src/index.ts"],
       "@nuko/nest-broker": ["libs/nest-broker/src/index.ts"],
       "@nuko/nest-cache": ["libs/nest-cache/src/index.ts"],
       "@nuko/nest-config": ["libs/nest-config/src/index.ts"],
