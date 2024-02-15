@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "local-deployment": {
+      "implementation": "./src/executors/local-deployment/executor",
+      "schema": "./src/executors/local-deployment/schema.json",
+      "description": "local-deployment executor"
+    }
+  }
+}

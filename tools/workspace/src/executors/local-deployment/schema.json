@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "LocalDeployment executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "command": {
+      "type": "string",
+      "description": "The command to run. Valid options include 'install', 'update', and 'update-ingress'.",
+      "enum": ["install", "update", "update-ingress"]
+    },
+    "debug": {
+      "type": "boolean",
+      "description": "Enable debug mode for more verbose output.",
+      "default": false
+    },
+    "service": {
+      "type": "string",
+      "description": "The specific service to update. Required only for the 'update' command."
+    }
+  },
+  "required": ["command"],
+  "additionalProperties": false
+}
