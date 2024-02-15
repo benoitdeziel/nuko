@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@microservice-stack/nest-config';
-import { ConfigVariables } from '@nuko/api/gateway/constants';
+import { ConfigService } from '@nuko/api/common/config';
+import { ConfigVariables } from '@nuko/gateway/constants';
 
 @Injectable()
 export class GatewayService {

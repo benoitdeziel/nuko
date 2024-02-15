@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nuko/api/common/config';
 import { ConfigVariables } from '@nuko/gateway/constants';
 import { HealthModule } from '@nuko/api/common/health';
 import { GatewayModule } from '@nuko/gateway/gateway';
 import { CacheModule } from '@nuko/api/common/cache';
+import { MessageBrokerModule } from '@nuko/message-broker';
 
 @Module({
   imports: [
@@ -20,7 +20,7 @@ import { CacheModule } from '@nuko/api/common/cache';
         ConfigVariables.CACHE_URL,
       ],
     }),
-    TypeOrmModule.forRootAsync({
+    /*     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: `postgres`,
@@ -35,8 +35,8 @@ import { CacheModule } from '@nuko/api/common/cache';
         migrationsRun: true,
       }),
       inject: [ConfigService],
-    }),
-    RabbitmqModule.register({
+    }), */
+    MessageBrokerModule.register({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
