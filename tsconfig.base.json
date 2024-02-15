@@ -20,7 +20,8 @@
       "@nuko/nest-cache": ["libs/nest-cache/src/index.ts"],
       "@nuko/nest-config": ["libs/nest-config/src/index.ts"],
       "@nuko/nest-health": ["libs/nest-health/src/index.ts"],
-      "@nuko/nest-logger": ["libs/nest-logger/src/index.ts"]
+      "@nuko/nest-logger": ["libs/nest-logger/src/index.ts"],
+      "@nuko/workspace": ["tools/workspace/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
