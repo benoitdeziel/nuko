@@ -1,25 +1,10 @@
 import { AppModule } from './app.module';
-import { startService } from '@microservice-stack/nest-application';
-import { SERVICE_NAME } from '@<%= organisationName %>/api/<%= applicationName %>/constants';
+import { startService } from '@<%= organisationName %>/api/common/nest-app';
+import { SERVICE_NAME } from '@<%= organisationName %>/<%= applicationName %>/constants';
 import { Logger } from '@nestjs/common';
-<% if(includeDatabase) { %>
-import { generateMigration } from '@microservice-stack/nest-typeorm-migrations';
-<% } %>
 
 async function bootstrap(): Promise<void> {
-  <% if(includeDatabase) { %>
-  const shouldGenerateMigrations: boolean = process.argv.some(
-    (arg) => arg === 'generate-migrations',
-  );
-
-  if (shouldGenerateMigrations) {
-    await generateMigration(SERVICE_NAME, AppModule);
-  } else {
-    await startService(SERVICE_NAME, AppModule);
-  }
-  <% } else { %>
   await startService(SERVICE_NAME, AppModule);
-  <% } %>
 }
 
 bootstrap().catch((error) => {

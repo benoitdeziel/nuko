@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { HealthModule } from '@microservice-stack/nest-health';
-import { ConfigModule, ConfigService } from '@microservice-stack/nest-config';
-import { ConfigVariables } from '@<%= organisationName %>/api/<%= applicationName %>/constants';
-import { <%= capitalApplicationName %>Module } from '@<%= organisationName %>/api/<%= applicationName %>/<%= applicationName %>';
-<% if(includeDatabase) { %>import { TypeOrmModule } from '@nestjs/typeorm';
-import { migrations } from './migrations';<% } if(includeQueue) { %>
-import { RabbitmqModule } from '@microservice-stack/nest-rabbitmq';<% } if(includeRedis) { %>
-import { RedisModule } from '@microservice-stack/nest-redis';<% } %>
+import { HealthModule } from '@<%= organisationName %>/api/common/health';
+import { ConfigModule, ConfigService } from '@<%= organisationName %>/api/common/config';
+import { ConfigVariables } from '@<%= organisationName %>/<%= applicationName %>/constants';
+import { <%= capitalApplicationName %>Module } from '@<%= organisationName %>/<%= applicationName %>/<%= applicationName %>';
+<% if(includeDatabase) { %>import { TypeOrmModule } from '@nestjs/typeorm';<% } if(includeQueue) { %>
+import { MessageBrokerModule } from '@<%= organisationName %>/message-broker';<% } if(includeRedis) { %>
+import { CacheModule } from '@<%= organisationName %>/api/common/cache';<% } %>
 
 @Module({
   imports: [
@@ -34,19 +33,18 @@ import { RedisModule } from '@microservice-stack/nest-redis';<% } %>
         synchronize: false,
         keepConnectionAlive: true,
         autoLoadEntities: true,
-        migrations: migrations,
         migrationsRun: true,
       }),
       inject: [ConfigService],
     }),<% } if (includeQueue) { %>
-    RabbitmqModule.register({
+    MessageBrokerModule.register({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         uri: configService.get(ConfigVariables.QUEUE_URL),
       }),
     }),<% } if (includeRedis) { %>
-    RedisModule.register({
+    CacheModule.register({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({

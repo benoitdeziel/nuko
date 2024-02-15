@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@microservice-stack/nest-config';
-import { ConfigVariables } from '@<%= organisationName %>/api/<%= name %>/constants';
+import { ConfigService } from '@<%= organisationName %>/api/common/config';
+import { ConfigVariables } from '@<%= organisationName %>/<%= name %>/constants';
+
    
 @Injectable()
 export class <%= capitalName %>Service {
