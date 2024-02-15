@@ -12,7 +12,6 @@ import { createApplicationFiles } from './lib/create-application-files';
 import { libraryGenerator } from '../library-generator/generator';
 import { createConstantsLibraryFiles } from './lib/create-constants-library-files';
 import { createDtoLibraryFiles } from './lib/create-dto-library-files';
-import { addMigrationGenerationTarget } from './lib/add-migration-generation-target';
 import { runTasksInSerial } from '@nx/devkit';
 import { createServiceLibraryFiles } from './lib/create-service-library-files';
 import { getOrganizationName } from '../../utils/organization-info';
@@ -101,8 +100,6 @@ export default async function applicationGenerator(
     capitalName: capitalApplicationName,
     organisationName: projectName,
   });
-
-  addMigrationGenerationTarget(tree, `${applicationName}`);
 
   return runTasksInSerial(
     nestApplicationGeneratorTask,

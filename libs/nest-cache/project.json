@@ -1,8 +1,0 @@
-{
-  "name": "nest-cache",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/nest-cache/src",
-  "projectType": "library",
-  "targets": {},
-  "tags": []
-}

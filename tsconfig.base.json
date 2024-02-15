@@ -15,11 +15,18 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nuko/api/common/cache": ["libs/api/common/cache/src/index.ts"],
       "@nuko/api/common/config": ["libs/api/common/config/src/index.ts"],
       "@nuko/api/common/health": ["libs/api/common/health/src/index.ts"],
+      "@nuko/api/common/nest-app": ["libs/api/common/nest-app/src/index.ts"],
+      "@nuko/gateway/constants": ["libs/api/gateway/constants/src/index.ts"],
+      "@nuko/gateway/data-transfer-objects": [
+        "libs/api/gateway/data-transfer-objects/src/index.ts"
+      ],
+      "@nuko/gateway/gateway": ["libs/api/gateway/gateway/src/index.ts"],
       "@nuko/generators": ["libs/generators/src/index.ts"],
+      "@nuko/message-broker": ["libs/api/common/message-broker/src/index.ts"],
       "@nuko/nest-broker": ["libs/nest-broker/src/index.ts"],
-      "@nuko/nest-cache": ["libs/nest-cache/src/index.ts"],
       "@nuko/nest-logger": ["libs/nest-logger/src/index.ts"],
       "@nuko/workspace": ["tools/workspace/src/index.ts"]
     }
