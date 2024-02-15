@@ -15,7 +15,7 @@ import { createDtoLibraryFiles } from './lib/create-dto-library-files';
 import { addMigrationGenerationTarget } from './lib/add-migration-generation-target';
 import { runTasksInSerial } from '@nx/devkit';
 import { createServiceLibraryFiles } from './lib/create-service-library-files';
-import { getProjectName } from '../../utils/project-info';
+import { getOrganizationName } from '../../utils/organization-info';
 
 export default async function applicationGenerator(
   tree: Tree,
@@ -31,7 +31,7 @@ export default async function applicationGenerator(
     applicationName.charAt(0).toUpperCase() + applicationName.slice(1)
   ).replace('-', '');
 
-  const projectName = getProjectName(tree);
+  const projectName = getOrganizationName(tree);
 
   const nestApplicationGeneratorTask = await nestApplicationGenerator(tree, {
     name: applicationName,

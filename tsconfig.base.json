@@ -15,11 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nuko/api/common/config": ["libs/api/common/config/src/index.ts"],
+      "@nuko/api/common/health": ["libs/api/common/health/src/index.ts"],
       "@nuko/generators": ["libs/generators/src/index.ts"],
       "@nuko/nest-broker": ["libs/nest-broker/src/index.ts"],
       "@nuko/nest-cache": ["libs/nest-cache/src/index.ts"],
-      "@nuko/nest-config": ["libs/nest-config/src/index.ts"],
-      "@nuko/nest-health": ["libs/nest-health/src/index.ts"],
       "@nuko/nest-logger": ["libs/nest-logger/src/index.ts"],
       "@nuko/workspace": ["tools/workspace/src/index.ts"]
     }

@@ -49,6 +49,7 @@ async function install(debug) {
     await enableIngressController(debug);
   } catch (error) {
     console.log(error.message);
+    throw error;
   }
 }
 

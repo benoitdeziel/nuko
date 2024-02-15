@@ -10,14 +10,14 @@ import { Linter } from '@nx/linter';
 import { deleteFiles } from '../../utils/delete-files';
 import { createFiles } from './lib/create-files';
 import { runTasksInSerial } from '@nx/devkit';
-import { getProjectName } from '../../utils/project-info';
+import { getOrganizationName } from '../../utils/organization-info';
 
 export async function libraryGenerator(
   tree: Tree,
   { libraryName, projectName, libraryType }: LibraryGeneratorSchema,
 ): Promise<GeneratorCallback> {
   const workspace = getWorkspaceLayout(tree);
-  const rootProjectName = getProjectName(tree);
+  const rootProjectName = getOrganizationName(tree);
 
   const tags: string[] = [];
 

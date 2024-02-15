@@ -1,8 +1,0 @@
-{
-  "name": "nest-config",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/nest-config/src",
-  "projectType": "library",
-  "targets": {},
-  "tags": []
-}

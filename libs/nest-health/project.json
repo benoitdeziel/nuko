@@ -1,8 +1,0 @@
-{
-  "name": "nest-health",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/nest-health/src",
-  "projectType": "library",
-  "targets": {},
-  "tags": []
-}
