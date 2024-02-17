@@ -38,6 +38,9 @@
     },
     "local-deploy": {
       "executor": "@nuko/workspace:local-deployment"
+    },
+    "set-development": {
+      "executor": "@nuko/workspace:local-development"
     }
   },
   "tags": []

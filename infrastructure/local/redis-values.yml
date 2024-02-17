@@ -16,3 +16,6 @@ replica:
     enabled: false
   readinessProbe:
     enabled: false
+
+service:
+  type: NodePort

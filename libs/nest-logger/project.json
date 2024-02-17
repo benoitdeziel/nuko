@@ -1,8 +1,0 @@
-{
-  "name": "nest-logger",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/nest-logger/src",
-  "projectType": "library",
-  "targets": {},
-  "tags": []
-}

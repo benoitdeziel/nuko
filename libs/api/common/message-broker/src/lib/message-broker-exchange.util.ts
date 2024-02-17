@@ -9,7 +9,8 @@ export class MessageBrokerExchangeUtil {
   ): RabbitMQExchangeConfig[] {
     return [...exchanges, this.getDefaultExchange()].flatMap(
       (exchange: MessageBrokerExchange) => {
-        const retryExchange: RabbitMQExchangeConfig = {
+        // install the plugin
+        /*         const retryExchange: RabbitMQExchangeConfig = {
           name: MessageBrokerExchangeUtil.getRetryExchangeName(exchange.name),
           type: 'x-delayed-message',
           options: {
@@ -17,7 +18,7 @@ export class MessageBrokerExchangeUtil {
               'x-delayed-type': 'direct',
             },
           },
-        };
+        }; */
 
         const deadLetterExchange: RabbitMQExchangeConfig = {
           name: MessageBrokerExchangeUtil.getDeadLetterExchangeName(
@@ -26,7 +27,7 @@ export class MessageBrokerExchangeUtil {
           type: 'direct',
         };
 
-        return [exchange, retryExchange, deadLetterExchange];
+        return [exchange, /* retryExchange, */ deadLetterExchange];
       },
     );
   }

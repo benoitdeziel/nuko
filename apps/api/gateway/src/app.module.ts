@@ -9,38 +9,13 @@ import { MessageBrokerModule } from '@nuko/message-broker';
 @Module({
   imports: [
     ConfigModule.register({
-      requiredEnvironmentVariables: [
-        ConfigVariables.REQUIRED_ENVIRONMENT_VARIABLE,
-        ConfigVariables.QUEUE_URL,
-        ConfigVariables.TYPEORM_DATABASE,
-        ConfigVariables.TYPEORM_HOST,
-        ConfigVariables.TYPEORM_PASSWORD,
-        ConfigVariables.TYPEORM_PORT,
-        ConfigVariables.TYPEORM_USERNAME,
-        ConfigVariables.CACHE_URL,
-      ],
+      requiredEnvironmentVariables: [],
     }),
-    /*     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
-        type: `postgres`,
-        host: configService.get(ConfigVariables.TYPEORM_HOST),
-        username: configService.get(ConfigVariables.TYPEORM_USERNAME),
-        password: configService.get(ConfigVariables.TYPEORM_PASSWORD),
-        database: configService.get(ConfigVariables.TYPEORM_DATABASE),
-        port: configService.get(ConfigVariables.TYPEORM_PORT),
-        synchronize: false,
-        keepConnectionAlive: true,
-        autoLoadEntities: true,
-        migrationsRun: true,
-      }),
-      inject: [ConfigService],
-    }), */
     MessageBrokerModule.register({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        uri: configService.get(ConfigVariables.QUEUE_URL),
+        uri: configService.get(ConfigVariables.RABBITMQ_URL),
       }),
     }),
     CacheModule.register({

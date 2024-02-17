@@ -12,13 +12,13 @@ import { CacheModule } from '@<%= organisationName %>/api/common/cache';<% } %>
     ConfigModule.register({
       requiredEnvironmentVariables: [
         ConfigVariables.REQUIRED_ENVIRONMENT_VARIABLE,
-        <% if(includeQueue) { %>ConfigVariables.QUEUE_URL,<% }  if(includeDatabase) { %>
+        <% if(includeQueue) { %>ConfigVariables.CACHE_URL,<% }  if(includeDatabase) { %>
         ConfigVariables.TYPEORM_DATABASE,
         ConfigVariables.TYPEORM_HOST,
         ConfigVariables.TYPEORM_PASSWORD,
         ConfigVariables.TYPEORM_PORT,
         ConfigVariables.TYPEORM_USERNAME,<% } if (includeRedis) { %>
-        ConfigVariables.REDIS_URL,<% } %>
+        ConfigVariables.CACHE_URL,<% } %>
       ],
     }),<% if(includeDatabase) { %>
     TypeOrmModule.forRootAsync({
@@ -41,7 +41,7 @@ import { CacheModule } from '@<%= organisationName %>/api/common/cache';<% } %>
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        uri: configService.get(ConfigVariables.QUEUE_URL),
+        uri: configService.get(ConfigVariables.CACHE_URL),
       }),
     }),<% } if (includeRedis) { %>
     CacheModule.register({
@@ -50,7 +50,7 @@ import { CacheModule } from '@<%= organisationName %>/api/common/cache';<% } %>
       useFactory: (configService: ConfigService) => ({
         connections: [{
           connectionName: 'default',
-          connectionUrl: configService.get(ConfigVariables.REDIS_URL),
+          connectionUrl: configService.get(ConfigVariables.CACHE_URL),
         }]
       }),
     }),<% } %>

@@ -17,3 +17,5 @@ readinessProbe:
   enabled: false
 startupProbe:
   enabled: false
+service:
+  type: NodePort

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "local development executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "debug": {
+      "type": "boolean",
+      "description": "Enable debug mode for more verbose output.",
+      "default": false
+    }
+  },
+  "required": []
+}

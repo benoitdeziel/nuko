@@ -4,6 +4,11 @@
       "implementation": "./src/executors/local-deployment/executor",
       "schema": "./src/executors/local-deployment/schema.json",
       "description": "local-deployment executor"
+    },
+    "local-development": {
+      "implementation": "./src/executors/local-development/executor",
+      "schema": "./src/executors/local-development/schema.json",
+      "description": "local-development executor"
     }
   }
 }

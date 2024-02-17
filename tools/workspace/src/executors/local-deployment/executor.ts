@@ -47,6 +47,7 @@ async function install(debug) {
     await setupCluster(debug);
     // await deployServices(debug);
     await enableIngressController(debug);
+    // await deployIngressController(debug);
   } catch (error) {
     console.log(error.message);
     throw error;
