@@ -7,6 +7,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
@@ -17,9 +18,10 @@
     "paths": {
       "@nuko/api/common/cache": ["libs/api/common/cache/src/index.ts"],
       "@nuko/api/common/config": ["libs/api/common/config/src/index.ts"],
-      "@nuko/api/common/health": ["libs/api/common/health/src/index.ts"],
-      "@nuko/api/common/nest-app": ["libs/api/common/nest-app/src/index.ts"],
       "@nuko/api/common/context": ["libs/api/common/context/src/index.ts"],
+      "@nuko/api/common/health": ["libs/api/common/health/src/index.ts"],
+      "@nuko/api/common/logger": ["libs/api/common/logger/src/index.ts"],
+      "@nuko/api/common/nest-app": ["libs/api/common/nest-app/src/index.ts"],
       "@nuko/gateway/constants": ["libs/api/gateway/constants/src/index.ts"],
       "@nuko/gateway/data-transfer-objects": [
         "libs/api/gateway/data-transfer-objects/src/index.ts"

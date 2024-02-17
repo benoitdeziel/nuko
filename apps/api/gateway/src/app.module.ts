@@ -6,6 +6,7 @@ import { GatewayModule } from '@nuko/gateway/gateway';
 import { CacheModule } from '@nuko/api/common/cache';
 import { MessageBrokerModule } from '@nuko/message-broker';
 import { ContextModule } from '@nuko/api/common/context';
+import { LoggerModule } from '@nuko/api/common/logger';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { ContextModule } from '@nuko/api/common/context';
       }),
     }),
     ContextModule,
+    LoggerModule,
     HealthModule,
     GatewayModule,
   ],

@@ -1,28 +1,18 @@
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
-import { WinstonModule } from 'nest-winston';
-import * as winston from 'winston';
+import { LoggerAdapterService } from '@nuko/api/common/logger';
 
 export async function startService(
   _name: string,
   module: unknown,
 ): Promise<INestApplication> {
   const app = await NestFactory.create(module, new FastifyAdapter(), {
-    logger: WinstonModule.createLogger({
-      transports: [
-        new winston.transports.Console({
-          format: winston.format.combine(
-            winston.format.timestamp(),
-            winston.format.ms(),
-            winston.format.json(),
-          ),
-        }),
-      ],
-    }),
+    bufferLogs: true,
     rawBody: true,
   });
 
+  app.useLogger(app.get(LoggerAdapterService));
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.enableCors();
 

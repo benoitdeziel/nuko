@@ -3,7 +3,7 @@ import { CLS_ID, ClsService } from 'nestjs-cls';
 import ContextStorageService from './interfaces/context.interface';
 
 @Injectable()
-export default class ContextService implements ContextStorageService {
+export class ContextService implements ContextStorageService {
   constructor(private readonly cls: ClsService) {}
 
   public get<T>(key: string): T | undefined {

@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigOptions } from './config.interfaces';
-import { ConfigService as OriginalConfigService } from '@nestjs/config';
+import { ConfigService as NestConfigService } from '@nestjs/config';
 
 @Injectable()
 export class ConfigService {
   constructor(
-    private configService: OriginalConfigService,
+    private configService: NestConfigService,
     @Inject('CONFIG_OPTIONS') private options: ConfigOptions,
   ) {
     options.requiredEnvironmentVariables.forEach((variableName: string) => {
@@ -23,5 +23,25 @@ export class ConfigService {
     }
 
     return value;
+  }
+
+  get isProduction(): boolean {
+    return this.environment === 'production';
+  }
+
+  get isDevelopment(): boolean {
+    return this.environment === 'development';
+  }
+
+  get isTest(): boolean {
+    return this.environment === 'test';
+  }
+
+  get slackWebhookUrl(): string {
+    return this.get('SLACK_INC_WEBHOOK_URL');
+  }
+
+  private get environment(): string {
+    return this.get('NODE_ENV');
   }
 }

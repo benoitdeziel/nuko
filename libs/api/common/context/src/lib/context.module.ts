@@ -1,7 +1,7 @@
 import { Global, Module } from '@nestjs/common';
-import { ClsModule, ClsService } from 'nestjs-cls';
+import { ClsModule } from 'nestjs-cls';
 import { v4 } from 'uuid';
-import ContextService from './context.service';
+import { ContextService } from './context.service';
 import { CONTEXT_CORRELATION_ID_HEADER } from './constants/context.constants';
 
 @Global()
