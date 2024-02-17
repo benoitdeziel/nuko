@@ -6,6 +6,7 @@ import { <%= capitalApplicationName %>Module } from '@<%= organisationName %>/<%
 <% if(includeDatabase) { %>import { TypeOrmModule } from '@nestjs/typeorm';<% } if(includeQueue) { %>
 import { MessageBrokerModule } from '@<%= organisationName %>/message-broker';<% } if(includeRedis) { %>
 import { CacheModule } from '@<%= organisationName %>/api/common/cache';<% } %>
+import { ContextModule } from '@<%= organisationName %>/api/common/context';
 
 @Module({
   imports: [
@@ -55,6 +56,7 @@ import { CacheModule } from '@<%= organisationName %>/api/common/cache';<% } %>
       }),
     }),<% } %>
     HealthModule,
+    ContextModule,
     <%= capitalApplicationName %>Module,
   ],
   controllers: [],
