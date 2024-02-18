@@ -7,6 +7,7 @@ import {
 import { tokens } from './src/lib/theme';
 
 export default defineConfig({
+  presets: ['@pandacss/dev/presets', '@shadow-panda/preset'],
   preflight: true,
   jsxFramework: 'react',
   outExtension: 'js',
