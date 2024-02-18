@@ -31,6 +31,7 @@
       "@nuko/message-broker": ["libs/api/common/message-broker/src/index.ts"],
       "@nuko/nest-broker": ["libs/nest-broker/src/index.ts"],
       "@nuko/nest-logger": ["libs/nest-logger/src/index.ts"],
+      "@nuko/ui": ["libs/ui/src/index.ts"],
       "@nuko/workspace": ["tools/workspace/src/index.ts"]
     }
   },
