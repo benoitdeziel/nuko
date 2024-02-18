@@ -50,7 +50,8 @@ Thumbs.db
 #logs
 logs
 
+#storybook
 storybook-static
+
 ## Panda
-styled-system
-styled-system-studio
+__generated__/

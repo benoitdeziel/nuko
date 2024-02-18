@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky && pnpm run prepare:panda",
+    "prepare:panda": "panda codegen --cwd=apps/web --config ../../libs/styled-system/panda.config.ts"
+
   },
   "private": true,
   "dependencies": {
